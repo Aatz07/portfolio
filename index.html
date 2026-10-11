@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Aatiq Ali portfolio for software engineering, autonomous driving, research, projects, gallery, and professional contact."
+    />
+    <title>Aatiq Ali | Portfolio</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+
+    <header class="site-header" id="siteHeader">
+      <a class="brand" href="#home" aria-label="Aatiq Ali home">
+        <img src="Images/Below icon.png" alt="" aria-hidden="true" />
+        <span>AA</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="resume-link" href="resume.pdf" target="_blank" rel="noreferrer">
+          Resume
+          <span aria-hidden="true">↗</span>
+        </a>
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle color theme">
+          <span class="theme-icon" aria-hidden="true"></span>
+        </button>
+        <button class="icon-button menu-toggle" id="menuToggle" type="button" aria-label="Open menu">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <nav aria-label="Mobile navigation">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+        <a href="resume.pdf" target="_blank" rel="noreferrer">Resume ↗</a>
+      </nav>
+    </div>
+
+    <aside class="social-rail" aria-label="Social links">
+      <a
+        href="https://github.com/Aatz07"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="GitHub"
+        data-social-preview="github"
+      >
+        <img src="Images/github.svg" alt="" aria-hidden="true" />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/aatiq-ali-0a8122251/"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="LinkedIn"
+        data-social-preview="linkedin"
+      >
+        <img src="Images/linkedin.svg" alt="" aria-hidden="true" />
+      </a>
+      <a
+        href="https://www.instagram.com/axtiq_/"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Instagram"
+        data-social-preview="instagram"
+      >
+        <img src="Images/instagram.svg" alt="" aria-hidden="true" />
+      </a>
+      <a href="mailto:aatiqali07@gmail.com" aria-label="Email Aatiq Ali">
+        <img src="Images/gmail.svg" alt="" aria-hidden="true" />
+      </a>
+    </aside>
+
+    <main>
+      <section class="hero section" id="home">
+        <div class="hero-heading">
+          <p class="eyebrow reveal">Aatiq Ali / Portfolio</p>
+          <h1 class="hero-title reveal">
+            <span>HI, I'M</span>
+            <span>AATIQ</span>
+          </h1>
+        </div>
+
+        <div class="hero-intro reveal">
+          <p class="hero-copy">
+            I build ideas. I create products. I turn concepts into something real.
+          </p>
+          <div class="role-line">
+            <span>Working across</span>
+            <strong id="roleRotator">Software Engineering</strong>
+          </div>
+        </div>
+
+        <div class="hero-character-stage reveal" id="heroCharacterStage">
+          <img
+            class="hero-character"
+            id="heroCharacter"
+            src="Images/eye frames/ChatGPT Image Oct 12, 2026, 01_22_50 AM-6.png"
+            alt="3D character portrait of Aatiq Ali"
+            decoding="async"
+            fetchpriority="high"
+            draggable="false"
+          />
+        </div>
+
+        <div class="hero-actions reveal">
+          <a class="button primary" href="#projects">
+            View My Work
+            <span aria-hidden="true">↓</span>
+          </a>
+          <a class="button ghost" href="resume.pdf" target="_blank" rel="noreferrer">
+            Resume
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <p class="hero-footnote reveal"><span aria-hidden="true"></span> Based in Germany · Open to good ideas</p>
+
+        <a class="scroll-cue" href="#about" aria-label="Scroll to about">
+          <span></span>
+        </a>
+      </section>
+
+      <section class="section about" id="about">
+        <div class="section-heading reveal">
+          <p class="eyebrow">02 / About Me</p>
+          <h2>Engineer, builder, and curious systems thinker.</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="portrait-panel reveal">
+            <img
+              src="Images/aatiq img dlr front.jpeg"
+              alt="Aatiq Ali standing in front of a blue car at DLR"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <div class="about-copy reveal">
+            <p>
+              I'm Aatiq, an engineer interested in autonomous systems, software development,
+              intelligent transportation technologies, and the space where research becomes
+              useful real-world tools.
+            </p>
+            <p>
+              Beyond engineering, I’m someone who enjoys exploring new places, capturing moments through photography,
+              learning new things, and taking on ideas that challenge me. This space brings together not only what I build,
+              but also the experiences, interests, and moments that represent who I am.
+            </p>
+
+            <div class="facts-grid" id="factsGrid"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section timeline-section" id="education">
+        <div class="section-heading reveal">
+          <p class="eyebrow">03 / Education</p>
+          <h2>Academic path shaped around systems, software, and mobility.</h2>
+        </div>
+        <div class="timeline" id="educationTimeline" aria-label="Education timeline"></div>
+      </section>
+
+      <section class="section timeline-section experience-section" id="experience">
+        <div class="section-heading reveal">
+          <p class="eyebrow">04 / Experience</p>
+          <h2>Practical work, research thinking, and engineering execution.</h2>
+        </div>
+        <div class="timeline compact" id="experienceTimeline" aria-label="Experience timeline"></div>
+      </section>
+
+      <section class="section projects" id="projects">
+        <div class="section-heading reveal">
+          <p class="eyebrow">05 / Selected Work</p>
+          <h2>Project system ready for real case studies.</h2>
+        </div>
+
+        <div class="project-grid" id="projectGrid"></div>
+
+        <div class="section-cta reveal">
+          <a class="button ghost" href="#contact">
+            Discuss a Project
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="section skills" id="skills">
+        <div class="section-heading reveal">
+          <p class="eyebrow">06 / Technologies</p>
+          <h2>Tools grouped by how they support the work.</h2>
+        </div>
+        <div class="skills-grid" id="skillsGrid"></div>
+      </section>
+
+      <section class="section gallery" id="gallery">
+        <div class="section-heading reveal">
+          <p class="eyebrow">07 / Gallery</p>
+          <h2>Life outside code, field notes, travel, and moments worth keeping.</h2>
+        </div>
+        <div class="masonry" id="galleryGrid"></div>
+      </section>
+
+      <section class="section socials" id="connect">
+        <div class="section-heading reveal">
+          <p class="eyebrow">08 / Social</p>
+          <h2>Let's connect.</h2>
+        </div>
+        <div class="social-card-grid" id="socialCards"></div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div class="contact-shell reveal">
+          <p class="eyebrow">09 / Contact</p>
+          <h2>Have something in mind?</h2>
+          <p>
+            Send a message for collaborations, research conversations, internships, technical
+            projects, or just a good idea that needs a thoughtful builder.
+          </p>
+
+          <form
+            class="contact-form"
+            action="mailto:aatiqali07@gmail.com"
+            method="post"
+            enctype="text/plain"
+          >
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" autocomplete="name" placeholder="Your name" />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" autocomplete="email" placeholder="you@example.com" />
+            </label>
+            <label class="full">
+              <span>Message</span>
+              <textarea name="message" rows="5" placeholder="Tell me what you are building"></textarea>
+            </label>
+            <button class="button primary" type="submit">
+              Send Message
+              <span aria-hidden="true">→</span>
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Aatiq Ali. Built as a portfolio system.</p>
+      <a href="#home">Back to top ↑</a>
+    </footer>
+
+    <div
+      class="social-profile-preview"
+      id="socialProfilePreview"
+      data-platform="instagram"
+      aria-hidden="true"
+    >
+      <div class="profile-preview-accent"></div>
+      <div class="profile-preview-heading">
+        <div class="profile-preview-avatar" data-preview-avatar aria-hidden="true">IG</div>
+        <div>
+          <strong data-preview-title>@axtiq_</strong>
+          <span data-preview-subtitle>Aatiq Ali on Instagram</span>
+        </div>
+      </div>
+      <p data-preview-description>Open the profile to see Aatiq's latest posts and updates on Instagram.</p>
+      <div class="profile-preview-footer">
+        <span data-preview-url>instagram.com/axtiq_</span>
+        <span aria-hidden="true">Open &#8599;</span>
+      </div>
+    </div>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Gallery image viewer">
+      <button class="icon-button lightbox-close" id="lightboxClose" type="button" aria-label="Close gallery">
+        ×
+      </button>
+      <button class="icon-button lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous image">
+        ‹
+      </button>
+      <figure>
+        <img id="lightboxImage" src="" alt="" />
+        <figcaption id="lightboxCaption"></figcaption>
+      </figure>
+      <button class="icon-button lightbox-next" id="lightboxNext" type="button" aria-label="Next image">
+        ›
+      </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

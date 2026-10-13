@@ -27,19 +27,18 @@ const eyeGazeFrames = {
   downRight: "Images/eye frames/ChatGPT Image Oct 12, 2026, 01_23_07 AM-6.png",
 };
 
-const facts = [
-  ["Based in", "Germany"],
-  ["Focus", "Autonomous Systems"],
-  ["Education", "M.Eng. candidate"],
-  ["Languages", "4 languages"],
-];
+const createMotionFrames = (folder, count) =>
+  Array.from(
+    { length: count },
+    (_, index) => `Images/widget-motion/${folder}/frame-${String(index + 1).padStart(2, "0")}.png`,
+  );
 
-const languageProficiencies = [
-  { name: "English", level: 6 },
-  { name: "German", level: 3 },
-  { name: "Malayalam", level: 6 },
-  { name: "Tamil", level: 5 },
-];
+const beyondMotionFrames = {
+  photography: createMotionFrames("photography", 10),
+  travelling: createMotionFrames("travelling", 10),
+  music: createMotionFrames("music", 10),
+  cycling: createMotionFrames("cycling", 1),
+};
 
 const education = [
   {
@@ -51,9 +50,9 @@ const education = [
     tags: ["Autonomous Driving", "Research", "Mobility"],
   },
   {
-    year: "2020",
+    year: "2019",
     title: "B.Tech Computer Science & Engineering",
-    place: "India",
+    place: "A P J Abdul Kalam Technical University, India",
     description:
       "Foundation in software engineering, algorithms, databases, and practical computing systems.",
     tags: ["Computer Science", "Software", "Systems"],
@@ -149,11 +148,11 @@ const socials = [
   ["Email", "aatiqali07", "mailto:aatiqali07@gmail.com"],
 ];
 
-const socialIcons = {
-  GitHub: "Images/github.svg",
-  LinkedIn: "Images/linkedin.svg",
-  Instagram: "Images/instagram.svg",
-  Email: "Images/gmail.svg",
+const socialBallImages = {
+  GitHub: "Images/snooker/web/ChatGPT Image Oct 13, 2026, 09_47_00 PM-1.png",
+  LinkedIn: "Images/snooker/web/ChatGPT Image Oct 13, 2026, 09_02_48 PM-10.png",
+  Instagram: "Images/snooker/web/ChatGPT Image Oct 13, 2026, 09_08_42 PM-1.png",
+  Email: "Images/snooker/web/gmail_frame_01.png",
 };
 
 const socialPreviews = {
@@ -197,185 +196,6 @@ function initTheme() {
     const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
     setTheme(next);
   });
-}
-
-function renderFacts() {
-  qs("#factsGrid").innerHTML = facts
-    .map(
-      ([label, value]) => {
-        if (label !== "Languages") {
-          return `
-            <div class="fact-card reveal">
-              <span>${label}</span>
-              <strong>${value}</strong>
-            </div>
-          `;
-        }
-
-        const languageCards = languageProficiencies
-          .map(
-            ({ name, level }, languageIndex) => `
-              <div
-                class="language-item"
-                style="--language-index: ${languageIndex}"
-                role="group"
-                aria-label="${name} proficiency: ${level} out of 6"
-              >
-                <b>${name}</b>
-                <div class="proficiency-dots" aria-hidden="true">
-                  ${Array.from(
-                    { length: 6 },
-                    (_, dotIndex) => `
-                      <i
-                        class="proficiency-dot${dotIndex < level ? " is-active" : ""}"
-                        style="--dot-index: ${dotIndex}"
-                      ></i>
-                    `,
-                  ).join("")}
-                </div>
-              </div>
-            `,
-          )
-          .join("");
-
-        return `
-          <div class="fact-card fact-card--languages reveal" data-language-card>
-            <button
-              class="language-card-trigger"
-              type="button"
-              aria-expanded="false"
-              aria-controls="languagePanel"
-            >
-              <span>${label}</span>
-              <strong>${value}</strong>
-            </button>
-            <div
-              class="language-panel"
-              id="languagePanel"
-              role="region"
-              aria-label="Language proficiency"
-              aria-hidden="true"
-            >
-              <div class="language-panel-grid">${languageCards}</div>
-            </div>
-          </div>
-        `;
-      },
-    )
-    .join("");
-}
-
-function initLanguageCard() {
-  const card = qs("[data-language-card]");
-
-  if (!card) return;
-
-  const trigger = qs(".language-card-trigger", card);
-  const panel = qs(".language-panel", card);
-  const hoverPointer = window.matchMedia("(hover: hover) and (pointer: fine)");
-  let positioningTimer;
-
-  if (!trigger || !panel) return;
-
-  const updatePlacement = () => {
-    const cardRect = card.getBoundingClientRect();
-    const viewportGap = 14;
-    const compactLayout = window.innerWidth <= 720;
-
-    panel.style.width = compactLayout
-      ? `${Math.min(cardRect.width, window.innerWidth - viewportGap * 2)}px`
-      : "";
-
-    const panelWidth = panel.offsetWidth;
-    const panelHeight = panel.offsetHeight;
-    let left;
-    let top;
-
-    card.classList.toggle("panel-side", !compactLayout);
-    card.classList.remove("panel-above", "panel-below");
-
-    if (!compactLayout) {
-      left = Math.min(cardRect.right + 12, window.innerWidth - panelWidth - viewportGap);
-      top = cardRect.top + cardRect.height / 2 - panelHeight / 2;
-    } else {
-      const spaceAbove = cardRect.top - viewportGap;
-      const spaceBelow = window.innerHeight - cardRect.bottom - viewportGap;
-      const placeBelow = spaceAbove < panelHeight + 12 && spaceBelow > spaceAbove;
-
-      left = cardRect.left;
-      top = placeBelow ? cardRect.bottom + 12 : cardRect.top - panelHeight - 12;
-      card.classList.add(placeBelow ? "panel-below" : "panel-above");
-    }
-
-    left = Math.max(viewportGap, Math.min(left, window.innerWidth - panelWidth - viewportGap));
-    top = Math.max(viewportGap, Math.min(top, window.innerHeight - panelHeight - viewportGap));
-
-    panel.style.setProperty("--language-panel-left", `${left}px`);
-    panel.style.setProperty("--language-panel-top", `${top}px`);
-  };
-
-  const setOpen = (open) => {
-    window.clearTimeout(positioningTimer);
-
-    if (open) {
-      card.classList.add("panel-positioning");
-      updatePlacement();
-    }
-
-    card.classList.toggle("is-open", open);
-    trigger.setAttribute("aria-expanded", String(open));
-    panel.setAttribute("aria-hidden", String(!open));
-
-    if (!open) {
-      positioningTimer = window.setTimeout(() => {
-        card.classList.remove("panel-positioning");
-      }, 300);
-    }
-  };
-
-  card.addEventListener("pointerenter", () => {
-    if (hoverPointer.matches) setOpen(true);
-  });
-
-  card.addEventListener("pointerleave", () => {
-    if (hoverPointer.matches) setOpen(false);
-  });
-
-  trigger.addEventListener("click", (event) => {
-    if (!hoverPointer.matches) {
-      setOpen(!card.classList.contains("is-open"));
-    } else if (event.detail === 0) {
-      setOpen(true);
-    }
-  });
-
-  trigger.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      setOpen(false);
-      trigger.focus();
-    }
-  });
-
-  card.addEventListener("focusin", () => setOpen(true));
-  card.addEventListener("focusout", (event) => {
-    if (!card.contains(event.relatedTarget)) setOpen(false);
-  });
-
-  document.addEventListener("pointerdown", (event) => {
-    if (!card.contains(event.target)) setOpen(false);
-  });
-
-  window.addEventListener("resize", () => {
-    if (card.classList.contains("is-open")) updatePlacement();
-  });
-
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (card.classList.contains("is-open")) updatePlacement();
-    },
-    { passive: true },
-  );
 }
 
 function renderTimeline(target, items) {
@@ -455,17 +275,22 @@ function renderSocials() {
     .map(
       ([title, handle, href]) => `
         <a
-          class="social-card social-card--${title.toLowerCase()} reveal"
+          class="social-card social-card--${title.toLowerCase()}"
           href="${href}"
           target="${href.startsWith("mailto:") ? "_self" : "_blank"}"
           rel="noreferrer"
           aria-label="Open ${title}${href.startsWith("mailto:") ? "" : ` profile ${handle}`}"
           ${href.startsWith("mailto:") ? "" : `data-social-preview="${title.toLowerCase()}"`}
         >
-          <span class="social-card-arrow" aria-hidden="true">↗</span>
-          <span class="social-ball-mark" aria-hidden="true">
-            <img src="${socialIcons[title]}" alt="" />
-          </span>
+          <span class="social-card-arrow" aria-hidden="true">&#8599;</span>
+          <span class="social-ball-fallback" aria-hidden="true">${title}</span>
+          <img
+            class="social-ball-sprite"
+            src="${socialBallImages[title]}"
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+          />
           <p>${handle}</p>
         </a>
       `,
@@ -849,6 +674,96 @@ function initParallax() {
   });
 }
 
+function initBeyondMotion() {
+  const items = qsa(".beyond-motion-item[data-motion]");
+  if (!items.length) return;
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const scenes = items
+    .map((item, offset) => {
+      const frames = beyondMotionFrames[item.dataset.motion];
+      const image = qs("img", item);
+      if (!frames || !image) return null;
+
+      return { frames, image, index: offset % frames.length, offset };
+    })
+    .filter(Boolean);
+
+  let isVisible = false;
+  let isLoaded = false;
+  let animationFrame = 0;
+  let previousTime = 0;
+  const frameDuration = 230;
+
+  const animate = (time) => {
+    if (!isVisible || reducedMotion.matches || document.hidden) {
+      animationFrame = 0;
+      return;
+    }
+
+    if (time - previousTime >= frameDuration) {
+      scenes.forEach((scene) => {
+        scene.index = (scene.index + 1) % scene.frames.length;
+        scene.image.src = scene.frames[scene.index];
+      });
+      previousTime = time;
+    }
+
+    animationFrame = requestAnimationFrame(animate);
+  };
+
+  const start = () => {
+    if (!isLoaded || animationFrame || !isVisible || reducedMotion.matches || document.hidden) return;
+    animationFrame = requestAnimationFrame(animate);
+  };
+
+  const loadFrames = async () => {
+    if (isLoaded) return;
+
+    await Promise.all(
+      scenes.flatMap((scene) =>
+        scene.frames.map(
+          (source) =>
+            new Promise((resolve) => {
+              const frame = new Image();
+              frame.addEventListener("load", resolve, { once: true });
+              frame.addEventListener("error", resolve, { once: true });
+              frame.src = source;
+            }),
+        ),
+      ),
+    );
+
+    isLoaded = true;
+    items.forEach((item) => item.classList.add("is-motion-ready"));
+    start();
+  };
+
+  const widget = qs(".beyond-widget");
+  if ("IntersectionObserver" in window && widget) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          loadFrames();
+          start();
+        } else if (animationFrame) {
+          cancelAnimationFrame(animationFrame);
+          animationFrame = 0;
+        }
+      },
+      { rootMargin: "320px" },
+    );
+    observer.observe(widget);
+  } else {
+    isVisible = true;
+    loadFrames();
+  }
+
+  document.addEventListener("visibilitychange", start);
+  reducedMotion.addEventListener("change", start);
+}
+
 function initContactForm() {
   const form = qs(".contact-form");
 
@@ -860,8 +775,6 @@ function initContactForm() {
 
 function boot() {
   initTheme();
-  renderFacts();
-  initLanguageCard();
   renderTimeline("#educationTimeline", education);
   renderTimeline("#experienceTimeline", experience);
   renderProjects();
@@ -877,6 +790,7 @@ function boot() {
   initLightbox();
   initCanvas();
   initParallax();
+  initBeyondMotion();
   initContactForm();
   qs("#year").textContent = new Date().getFullYear();
 }

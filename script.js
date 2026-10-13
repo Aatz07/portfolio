@@ -360,6 +360,14 @@ function initSocialPreview() {
 }
 
 function initReveal() {
+  const items = qsa(".reveal");
+
+  if (!("IntersectionObserver" in window)) {
+    items.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
+
+  document.documentElement.classList.add("reveal-ready");
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -372,7 +380,7 @@ function initReveal() {
     { threshold: 0.16 },
   );
 
-  qsa(".reveal").forEach((item, index) => {
+  items.forEach((item, index) => {
     item.style.transitionDelay = `${Math.min(index % 8, 5) * 45}ms`;
     observer.observe(item);
   });

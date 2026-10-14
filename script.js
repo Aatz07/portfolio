@@ -46,16 +46,31 @@ const education = [
     title: "M.Eng. Autonomous Driving",
     place: "Hochschule Coburg · Germany",
     description:
-      "Advanced studies across autonomous mobility, perception, systems thinking, and applied engineering.",
-    tags: ["Autonomous Driving", "Research", "Mobility"],
+      "Advanced studies in autonomous mobility, focusing on the design, development, and implementation of intelligent vehicle systems. Gained practical experience in localization, sensor integration, trajectory planning, V2X communication, and real-time testing of autonomous driving applications.",
+    tags: [
+      "Autonomous Driving",
+      "Localization",
+      "Sensor Fusion",
+      "Trajectory Planning",
+      "V2X Communication",
+      "Real-Time Testing",
+      "Research",
+    ],
   },
   {
     year: "2019",
-    title: "B.Tech Computer Science & Engineering",
-    place: "A P J Abdul Kalam Technical University, India",
+    title: "B.Tech. Computer Science & Engineering",
+    place: "APJ Abdul Kalam Technological University · India",
     description:
-      "Foundation in software engineering, algorithms, databases, and practical computing systems.",
-    tags: ["Computer Science", "Software", "Systems"],
+      "Built a strong foundation in software engineering, computational problem-solving, and system architecture. Developed practical skills in programming, microprocessors and microcontrollers, system design, and translating technical concepts into functional applications.",
+    tags: [
+      "Microprocessors & Microcontrollers",
+      "System Design",
+      "Concept Development",
+      "Software Engineering",
+      "Algorithms",
+      "System Architecture",
+    ],
   },
 ];
 

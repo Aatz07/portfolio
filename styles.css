@@ -916,6 +916,10 @@ body.menu-open .menu-toggle span:last-child {
   color: var(--muted);
 }
 
+#education .timeline-card p + p {
+  margin-top: 14px;
+}
+
 .timeline-meta {
   display: flex;
   flex-wrap: wrap;

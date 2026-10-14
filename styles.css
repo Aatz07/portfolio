@@ -940,6 +940,23 @@ body.menu-open .menu-toggle span:last-child {
   font-weight: 750;
 }
 
+#education .pill {
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+@media (hover: hover) {
+  #education .pill:hover {
+    border-color: var(--accent);
+    background-color: color-mix(in srgb, var(--accent) 16%, var(--surface-solid));
+    color: var(--text);
+    box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 22%, transparent);
+  }
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

@@ -353,6 +353,11 @@ function skillIcon({ icon }) {
 // Add a `link` to show an "Open the app" button.
 const workbench = [
   {
+    title: "GTSRB Traffic Sign Classifier",
+    status: "In progress",
+    text: "Classifying German traffic signs from the GTSRB benchmark dataset. It's a well-known problem, and I'm rebuilding it myself to learn how convolutional neural networks (CNNs) and related models work in practice.",
+  },
+  {
     title: "Reinforcement Learning Project",
     status: "In progress",
     text: "Exploring reinforcement learning: agents that learn to make decisions through trial, error, and reward.",

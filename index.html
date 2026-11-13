@@ -9,7 +9,7 @@
     />
     <title>Aatiq Ali | Portfolio</title>
     <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="stylesheet" href="styles.css?v=20261014-3" />
+    <link rel="stylesheet" href="styles.css?v=20261110-16" />
   </head>
   <body>
     <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
@@ -25,6 +25,7 @@
         <a href="#education">Education</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#research">Research</a>
         <a href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -50,6 +51,7 @@
         <a href="#education">Education</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#research">Research</a>
         <a href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
         <a href="resume.pdf" target="_blank" rel="noreferrer">Resume ↗</a>
@@ -159,8 +161,23 @@
             <p>
               I'm Aatiq, an engineer interested in autonomous systems, software development,
               intelligent transportation technologies, and the space where research becomes
-              useful real-world tools.
+              useful real-world tools. I recently completed my master's thesis at the German Aerospace
+              Center (DLR) in Stuttgart: a Python tool that places sensors for self-driving cars on
+              existing streetlights and traffic-light poles. Across 7 districts in Hamburg, Cologne and
+              Ingolstadt, 59–75% of sensors needed no new pole.
             </p>
+
+            <dl class="quick-facts">
+              <div>
+                <dt>Studying</dt>
+                <dd>M.Eng. Autonomous Driving</dd>
+              </div>
+              <div>
+                <dt>Focus</dt>
+                <dd>ROS 2 · V2X · Geospatial</dd>
+              </div>
+            </dl>
+
             <p>
               Beyond engineering, I’m someone who enjoys exploring new places, capturing moments through photography,
               learning new things, and taking on ideas that challenge me. This space brings together not only what I build,
@@ -265,13 +282,45 @@
         <div class="timeline compact" id="experienceTimeline" aria-label="Experience timeline"></div>
       </section>
 
+      <section class="section impact" aria-label="Highlights in numbers">
+        <div class="impact-panel reveal">
+          <div class="impact-stat">
+            <strong class="impact-value">2</strong>
+            <span>degrees in computer science &amp; autonomous driving</span>
+          </div>
+          <div class="impact-stat">
+            <strong class="impact-value">3</strong>
+            <span>roles across research, development &amp; internship</span>
+          </div>
+          <div class="impact-stat">
+            <strong class="impact-value">6+</strong>
+            <span>engineering projects across autonomy, geospatial &amp; software</span>
+          </div>
+          <div class="impact-stat">
+            <strong class="impact-value">1</strong>
+            <span>published research paper in machine learning</span>
+          </div>
+        </div>
+      </section>
+
       <section class="section projects" id="projects">
         <div class="section-heading reveal">
           <p class="eyebrow">05 / Selected Work</p>
-          <h2>Project system ready for real case studies.</h2>
+          <h2>Work across autonomy, geospatial research, and software.</h2>
+          <p class="section-lede">Select a project to read the case study: the problem, what I did, and what came out of it.</p>
         </div>
 
         <div class="project-grid" id="projectGrid"></div>
+
+        <aside class="workbench reveal" aria-labelledby="workbenchTitle">
+          <div class="workbench-head">
+            <p class="highlight-kicker">Currently building</p>
+            <h3 id="workbenchTitle">On the workbench</h3>
+            <p>Side projects in progress right now, with more ideas still in planning.</p>
+          </div>
+          <ul class="workbench-list" id="workbenchList"></ul>
+          <p class="workbench-foot"><span aria-hidden="true">+</span> More projects in the planning stage. Check back soon.</p>
+        </aside>
 
         <div class="section-cta reveal">
           <a class="button ghost" href="#contact">
@@ -283,24 +332,78 @@
 
       <section class="section skills" id="skills">
         <div class="section-heading reveal">
-          <p class="eyebrow">06 / Technologies</p>
-          <h2>Tools grouped by how they support the work.</h2>
+          <p class="eyebrow">06 / Skills &amp; Languages</p>
+          <h2>My Arsenal.</h2>
+          <p class="section-lede">Technologies and tools I apply across autonomous systems, geospatial analysis, and software development, with proficiency levels for each.</p>
         </div>
         <div class="skills-grid" id="skillsGrid"></div>
       </section>
 
+      <section class="section highlights" id="research">
+        <div class="section-heading reveal">
+          <p class="eyebrow">07 / Research &amp; Leadership</p>
+          <h2>Published work, research on the way, and people I've led.</h2>
+        </div>
+
+        <div class="highlights-grid">
+          <article class="highlight-card publication-card reveal">
+            <p class="highlight-kicker">Publication · 2022</p>
+            <h3>A Review on Machine Learning-Based Algorithms for Heart Disease Diagnosis and Prediction</h3>
+            <p>
+              A comparative review of machine-learning approaches for diagnosing and predicting heart
+              disease, looking at how each algorithm performs and where it fits.
+            </p>
+            <div class="timeline-meta">
+              <span class="pill">KNN</span>
+              <span class="pill">Decision Trees</span>
+              <span class="pill">Logistic Regression</span>
+              <span class="pill">SVM</span>
+              <span class="pill">Random Forest</span>
+              <span class="pill">Naive Bayes</span>
+            </div>
+            <a class="button ghost" href="https://doi.org/10.32628/CSEIT228686" target="_blank" rel="noreferrer">
+              DOI: 10.32628/CSEIT228686
+              <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <article class="highlight-card publication-card forthcoming-card reveal">
+            <p class="highlight-kicker">Forthcoming · Master's Thesis</p>
+            <h3>Application and Evaluation of a Methodology for Defining Infrastructure Sensor Positions with Consideration of Existing Infrastructure</h3>
+            <p>
+              My master's thesis at the German Aerospace Center (DLR) and Hochschule Coburg, planned for
+              publication. It will be available in the DLR electronic library (elib) once it is released.
+            </p>
+            <div class="timeline-meta">
+              <span class="pill">Autonomous Driving</span>
+              <span class="pill">Infrastructure Sensors</span>
+              <span class="pill">Geospatial Analysis</span>
+            </div>
+            <span class="status-chip is-planned">Publication pending · DLR elib</span>
+          </article>
+
+          <div class="leadership-list" id="leadershipList"></div>
+        </div>
+      </section>
+
       <section class="section gallery" id="gallery">
         <div class="section-heading reveal">
-          <p class="eyebrow">07 / Gallery</p>
+          <p class="eyebrow">08 / Gallery</p>
           <h2>Life outside code, field notes, travel, and moments worth keeping.</h2>
         </div>
         <div class="masonry" id="galleryGrid"></div>
+        <div class="section-cta">
+          <button class="button ghost" id="galleryToggle" type="button" aria-controls="galleryGrid" aria-expanded="false">
+            <span data-gallery-toggle-label>Show all photos</span>
+            <span aria-hidden="true">↓</span>
+          </button>
+        </div>
       </section>
 
       <section class="section socials" id="connect">
         <div class="section-heading social-heading reveal">
           <div>
-            <p class="eyebrow">08 / Social</p>
+            <p class="eyebrow">09 / Social</p>
             <h2>Let's connect.</h2>
           </div>
         </div>
@@ -311,35 +414,38 @@
 
       <section class="section contact" id="contact">
         <div class="contact-shell reveal">
-          <p class="eyebrow">09 / Contact</p>
+          <p class="eyebrow">10 / Contact</p>
           <h2>Have something in mind?</h2>
           <p>
             Send a message for collaborations, research conversations, internships, technical
             projects, or just a good idea that needs a thoughtful builder.
           </p>
 
-          <form
-            class="contact-form"
-            action="mailto:aatiqali07@gmail.com"
-            method="post"
-            enctype="text/plain"
-          >
+          <form class="contact-form" action="https://api.web3forms.com/submit" method="post">
+            <!-- Paste your Web3Forms access key here (get one free at web3forms.com). -->
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+            <input type="hidden" name="subject" value="New message from your portfolio" />
+            <input type="hidden" name="from_name" value="Aatiq Ali Portfolio" />
+            <!-- Spam trap: real visitors never see or fill this. -->
+            <input type="checkbox" name="botcheck" class="form-trap" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
             <label>
               <span>Name</span>
-              <input type="text" name="name" autocomplete="name" placeholder="Your name" />
+              <input type="text" name="name" autocomplete="name" placeholder="Your name" required />
             </label>
             <label>
               <span>Email</span>
-              <input type="email" name="email" autocomplete="email" placeholder="you@example.com" />
+              <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
             </label>
             <label class="full">
               <span>Message</span>
-              <textarea name="message" rows="5" placeholder="Tell me what you are building"></textarea>
+              <textarea name="message" rows="5" placeholder="Tell me what you are building" required></textarea>
             </label>
             <button class="button primary" type="submit">
-              Send Message
+              <span data-button-label>Send Message</span>
               <span aria-hidden="true">→</span>
             </button>
+            <p class="form-status full" id="formStatus" role="status" aria-live="polite"></p>
           </form>
         </div>
       </section>
@@ -371,6 +477,19 @@
       </div>
     </div>
 
+    <dialog class="project-dialog" id="projectDialog" aria-labelledby="projectDialogTitle">
+      <button class="icon-button project-dialog-close" id="projectDialogClose" type="button" aria-label="Close case study">
+        ×
+      </button>
+      <div id="projectDialogBody"></div>
+      <footer class="project-dialog-footer">
+        <a class="button primary" id="projectDialogContact" href="#contact">
+          Talk about this project
+          <span aria-hidden="true">→</span>
+        </a>
+      </footer>
+    </dialog>
+
     <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Gallery image viewer">
       <button class="icon-button lightbox-close" id="lightboxClose" type="button" aria-label="Close gallery">
         ×
@@ -387,6 +506,6 @@
       </button>
     </div>
 
-    <script src="script.js?v=20261014-2"></script>
+    <script src="script.js?v=20261110-16"></script>
   </body>
 </html>

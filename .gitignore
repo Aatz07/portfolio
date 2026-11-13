@@ -1,0 +1,2 @@
+# Original full-size gallery photos stay local; the site uses Images/gallery/web and Images/gallery/thumbs.
+Images/gallery/*.jpeg
